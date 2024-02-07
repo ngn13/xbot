@@ -2,10 +2,29 @@
 Simple, configurable and modular MUC XMPP bot written in python.
 
 ## Modules
-- General (`general`): Simple commands: `help`, `echo`, `ping` and `info`
-- AFK (`afk`): Set and clear AFK status with `afk-set` and `afk-clear`, if you are AFK, bot will warn
-other members when they ping you, using the custom message you specified. 
-- Redirect (`redirect`): Provides alternative privacy friendly frotend links. When enabled, if a user message contains 
-YouTube, Twitter, Reddit, Medium or StackOverflow link, bot will message alternative frontend link for the same link.
-- TOR (`tor`): Lets users see the TOR network summary (`tor-sum`), list top relays for countries (`tor-top`) and search 
-for relays by fingerprint or name (`tor-search`)
+| Name       | Description                                          | Commands 
+| ---------- | ---------------------------------------------------- | -------------------------------
+| `general`  | Simple commands                                      | `help`, `echo`, `ping`, `info`
+| `afk`      | Set & clear AFK status                               | `afk-set`, `afk-clear`
+| `redirect` | Provides alternative privacy friendly frontend links | none
+| `tor`      | Search for TOR relays, see network status etc.       | `tor-sum`, `tor-top`, `tor-search`
+
+## Install
+1. Copy over the example configuration and modify it for your needs: [`config.json.example`](config.json.example)
+2. Deploy the bot with docker:
+```bash
+docker run -d --restart=unless-stopped          \
+           -v $PWD/config.json:/bot/config.json \
+           ghcr.io/ngn13/xbot:latest 
+```
+
+## Development
+Start by cloning the repository and creating a virtual environment:
+```bash
+git clone https://github.com/ngn13/xbot.git
+cd xbot && python3 -m venv venv
+source venv/bin/activate.sh
+```
+When you are in the virtual environment, run the `requirements.sh` script to install all the requirements. 
+
+You can extend the bot and more modules. To load your new module, add it to `modules/__init__.py` and to your configuration.

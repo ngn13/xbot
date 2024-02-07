@@ -1,0 +1,17 @@
+{
+  "nick": "mycoolbot",
+  "prefix": ".",
+  "jid": "mycoolbot@chat.example.com",
+  "password": "secure_password_for_the_bot_account",
+  "contact": "i@host.the.bot",
+  "mucs": [
+    "themuc@for.the.bot",
+    "theothermuc@for.the.bot"
+  ],
+  "modules": [
+    "general",
+    "redirect",
+    "afk",
+    "tor"
+  ]
+}

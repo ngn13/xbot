@@ -48,7 +48,7 @@ class xbot(ClientXMPP):
         for m in self.modules:
             m.on_msg(c)
 
-        if not c["body"].startswith("."):
+        if not c["body"].startswith(cfg.PREFIX):
             return
         
         parsed = parse_cmd(c["body"])
