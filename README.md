@@ -1,7 +1,7 @@
 # xbot | modular XMPP bot 
 Simple, configurable and modular MUC XMPP bot written in python.
 
-## Modules
+### 🗂 Modules
 | Name       | Description                                          | Commands 
 | ---------- | ---------------------------------------------------- | -------------------------------
 | `general`  | Simple commands                                      | `help`, `echo`, `ping`, `info`
@@ -9,7 +9,7 @@ Simple, configurable and modular MUC XMPP bot written in python.
 | `redirect` | Provides alternative privacy friendly frontend links | none
 | `tor`      | Search for TOR relays, see network status etc.       | `tor-sum`, `tor-top`, `tor-search`
 
-## Install
+### 🚀 Install
 1. Copy over the example configuration and modify it for your needs: [`config.json.example`](config.json.example)
 2. Deploy the bot with docker:
 ```bash
@@ -18,7 +18,7 @@ docker run -d --restart=unless-stopped          \
            ghcr.io/ngn13/xbot:latest 
 ```
 
-## Development
+### 🛠 Development
 Start by cloning the repository and creating a virtual environment:
 ```bash
 git clone https://github.com/ngn13/xbot.git
