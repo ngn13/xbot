@@ -8,9 +8,9 @@ check_hash() {
   echo "Hash verification success!"
 }
 
-pip_depends=("setuptools" "requests")
+pip_depends="setuptools requests"
 
-for d in ${pip_depends[@]}; do
+for d in $pip_depends; do
   echo ">> Installing $d (pip)"
   pip install $d
 done
