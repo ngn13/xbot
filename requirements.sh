@@ -19,7 +19,7 @@ SLIX_VERSION="1.8.4"
 SLIX_HASH="b60c0aad83e1452a1646aef2b7e223cb66cb9a9cae52aaafb3d4ac9f46688580"
 
 echo ">> Downloading slixmpp"
-wget -q --show-progress "https://codeberg.org/poezio/slixmpp/archive/slix-$SLIX_VERSION.tar.gz"
+wget -q "https://codeberg.org/poezio/slixmpp/archive/slix-$SLIX_VERSION.tar.gz"
 check_hash "slix-$SLIX_VERSION.tar.gz" "$SLIX_HASH"
 
 echo ">> Extracting slixmpp"
