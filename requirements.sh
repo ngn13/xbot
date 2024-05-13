@@ -8,22 +8,30 @@ check_hash() {
   echo "Hash verification success!"
 }
 
-VERSION="1.8.4"
-HASH="b60c0aad83e1452a1646aef2b7e223cb66cb9a9cae52aaafb3d4ac9f46688580"
+pip_depends=(
+  "setuptools"
+  "requests"
+)
+
+for d in ${pip_depends[@]}; do
+  echo ">> Installing $d (pip)"
+  pip install $d
+done
+
+SLIX_VERSION="1.8.4"
+SLIX_HASH="b60c0aad83e1452a1646aef2b7e223cb66cb9a9cae52aaafb3d4ac9f46688580"
 
 echo ">> Downloading slixmpp"
-wget https://codeberg.org/poezio/slixmpp/archive/slix-$VERSION.tar.gz
-echo ">> Extracting slixmpp"
-tar xf slix-$VERSION.tar.gz
+wget -q --show-progress "https://codeberg.org/poezio/slixmpp/archive/slix-$SLIX_VERSION.tar.gz"
+check_hash "slix-$SLIX_VERSION.tar.gz" "$SLIX_HASH"
 
-cd slixmpp
+echo ">> Extracting slixmpp"
+tar xf "slix-$SLIX_VERSION.tar.gz"
+
+pushd slixmpp
   echo ">> Installing slixmpp"
   python3 setup.py install
-cd ..
+popd
 
-rm -rf slixmpp slix-$VERSION.tar.gz
-
-echo ">> Installing requests"
-pip3 install requests
-
+rm -rf "slixmpp" *.tar.gz*
 echo ">> Installed all the requirements"
